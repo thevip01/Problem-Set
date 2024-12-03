@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Admin Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+                <th>Points</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.app_name }}</td>
+                <td>{{ task.category }}</td>
+                <td>{{ task.sub_category }}</td>
+                <td>{{ task.points }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

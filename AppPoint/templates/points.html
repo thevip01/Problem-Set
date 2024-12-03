@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}My Points{% endblock %}
+
+{% block content %}
+<h1>Your Total Points</h1>
+<table>
+    <thead>
+        <tr>
+            <th>App Name</th>
+            <th>Point</th>
+            <th>Submitted At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for submission in points %}
+        <tr>
+            <td>{{ submission.app.app_name }}</td>
+            <td>{{ submission.app.points }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Total Points: {{total_points}}</h2>
+{% endblock %}

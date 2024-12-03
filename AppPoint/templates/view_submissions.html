@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}User Submissions{% endblock %}
+
+{% block content %}
+    <h1>User Submissions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>App</th>
+                <th>Screenshot</th>
+                <th>Completed</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in submissions %}
+            <tr>
+                <td>{{ submission.user.username }}</td>
+                <td>{{ submission.app.app_name }}</td>
+                <td><img src="{{ submission.screenshot.url }}" alt="Screenshot" width="100"></td>
+                <td>{{ submission.completed }}</td>
+                <td>{{ submission.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

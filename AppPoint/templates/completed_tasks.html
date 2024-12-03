@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Completed Tasks{% endblock %}
+
+{% block content %}
+    <h1>Completed Tasks</h1>
+    <ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>App Name</th>
+                    <th>Point</th>
+                    <th>Screenshot</th>
+                    <th>Completed</th>
+                    <th>Submitted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for submission in tasks %}
+                <tr>
+                    <td>{{ submission.app.app_name }}</td>
+                    <td>{{ submission.app.points }}</td>
+                    <td><img src="{{ submission.screenshot.url }}" alt="Screenshot" width="100"></td>
+                    <td>{% if submission.completed  %} Yes {% else %} No {% endif %}</td>
+                    <td>{{ submission.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </ul>
+{% endblock %}

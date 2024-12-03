@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Available Tasks</h1>
+    <div class="tasks">
+        {% for task in tasks %}
+        <div class="task-card">
+            <h2>{{ task.app_name }}</h2>
+            <p>Category: {{ task.category }}</p>
+            <p>Sub-Category: {{ task.sub_category }}</p>
+            <p>Points: {{ task.points }}</p>
+            <a href="{% url 'submit_task' task.id %}">Submit Task</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

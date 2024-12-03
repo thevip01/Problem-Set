@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Submit Task{% endblock %}
+
+{% block content %}
+    <h1>Submit Task for {{ task.app_name }}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Upload Screenshot:</label>
+        <input type="file" name="screenshot" required>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
